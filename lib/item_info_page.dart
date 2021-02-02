@@ -7,6 +7,9 @@ class ItemInfoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('detailed information'),
+      ),
       body: Container(
         child: Center(
           child: Text(name, style: TextStyle(fontSize: 30)),

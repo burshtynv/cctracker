@@ -2,6 +2,8 @@ import 'package:cctracker/model/crypto_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../item_info_page.dart';
+
 class CryptoItemWidget extends StatelessWidget {
   final CryptoModel cryptoModel;
   final Function(CryptoModel obj) onTapActorFunction;
@@ -18,13 +20,25 @@ class CryptoItemWidget extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
-              width: 50.0,
-              height: 50.0,
-              child: FloatingActionButton.extended(
-                onPressed: () {},
-                label: Text(cryptoModel.symbol),
-                backgroundColor: Colors.blue,
+            Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                border: Border.all(width: 1),
+                shape: BoxShape.circle,
+                // You can use like this way or like the below line
+                //borderRadius: new BorderRadius.circular(30.0),
+                color: Colors.blue,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    cryptoModel.symbol,
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                ],
               ),
             ),
             Padding(

@@ -22,33 +22,42 @@ class _ListCryptoState extends State<ListCrypto> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: ListView.builder(
-          itemCount: data.length,
-          itemBuilder: (context, index) {
-            CryptoModel cryptoModel = data[index];
-            return CryptoItemWidget(
-                cryptoModel: cryptoModel,
-                onTapActorFunction: (cryptoModel) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => ItemInfoPage(
-                              name: cryptoModel.name,
-                            )),
-                  );
-                });
-          },
-        ),
-        floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
-            _loadCC();
-          },
-          label: Text('Refresh'),
-          icon: Icon(Icons.refresh),
-          backgroundColor: Colors.blue,
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('CryptoCurrency'),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () {
+              _loadCC();
+            },
+          ),
+        ],
+      ),
+      body: ListView.builder(
+        itemCount: data.length,
+        itemBuilder: (context, index) {
+          CryptoModel cryptoModel = data[index];
+          return CryptoItemWidget(
+              cryptoModel: cryptoModel,
+              onTapActorFunction: (cryptoModel) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ItemInfoPage(
+                            name: cryptoModel.name,
+                          )),
+                );
+              });
+        },
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          _loadCC();
+        },
+        label: Text('Refresh'),
+        icon: Icon(Icons.refresh),
+        backgroundColor: Colors.blue,
       ),
     );
   }
