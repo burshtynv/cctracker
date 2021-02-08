@@ -15,42 +15,67 @@ class CryptoItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => onTapActorFunction(cryptoModel),
-      child: Container(
-        height: 60,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              width: 50,
-              height: 50,
-              decoration: BoxDecoration(
-                border: Border.all(width: 1),
-                shape: BoxShape.circle,
-                // You can use like this way or like the below line
-                //borderRadius: new BorderRadius.circular(30.0),
-                color: Colors.blue,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    cryptoModel.symbol,
-                    style: TextStyle(color: Colors.white, fontSize: 15),
+      child: Padding(
+        padding: const EdgeInsets.all(0),
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(width: 1),
+
+            // You can use like this way or like the below line
+            //borderRadius: new BorderRadius.circular(30.0),
+            // color: Colors.blue,
+          ),
+          height: 40,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: 30,
+                height: 30,
+                child: Center(
+                  child: Text(
+                    cryptoModel.rank.toString() + '.',
+                    style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
-                ],
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                cryptoModel.name,
-                style: TextStyle(color: Colors.red, fontSize: 20),
+              Padding(
+                padding: EdgeInsets.only(top: 0, bottom: 0, left: 5, right: 0),
+                child: Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    border: Border.all(width: 1),
+                    shape: BoxShape.circle,
+                    // You can use like this way or like the below line
+                    //borderRadius: new BorderRadius.circular(30.0),
+                    color: Colors.blue,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        cryptoModel.symbol,
+                        style: TextStyle(color: Colors.white, fontSize: 10),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ),
-            Text((cryptoModel.price.toStringAsFixed(1)) + ' \$',
-                style: TextStyle(color: Colors.black, fontSize: 18))
-          ],
+              Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Text(
+                  cryptoModel.name,
+                  style: TextStyle(color: Colors.red, fontSize: 15),
+                ),
+              ),
+              Text((cryptoModel.price.toStringAsFixed(1)) + ' \$',
+                  style: TextStyle(color: Colors.black, fontSize: 13)),
+              Text((cryptoModel.changePercent24Hr.toStringAsFixed(1)) + ' \%',
+                  style: TextStyle(color: Colors.black, fontSize: 13))
+            ],
+          ),
         ),
       ),
     );

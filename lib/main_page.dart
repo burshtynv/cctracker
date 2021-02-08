@@ -51,14 +51,6 @@ class _ListCryptoState extends State<ListCrypto> {
               });
         },
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          _loadCC();
-        },
-        label: Text('Refresh'),
-        icon: Icon(Icons.refresh),
-        backgroundColor: Colors.blue,
-      ),
     );
   }
 
@@ -75,7 +67,9 @@ class _ListCryptoState extends State<ListCrypto> {
             name: val['name'],
             symbol: val['symbol'],
             price: double.parse(val['priceUsd']),
-            rank: int.parse(val['rank']));
+            rank: int.parse(val['rank']),
+            changePercent24Hr: double.parse(val['changePercent24Hr']));
+
         ccDataList.add(record);
       });
 
