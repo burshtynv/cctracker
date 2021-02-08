@@ -19,11 +19,7 @@ class CryptoItemWidget extends StatelessWidget {
         padding: const EdgeInsets.all(0),
         child: Container(
           decoration: BoxDecoration(
-            border: Border.all(width: 1),
-
-            // You can use like this way or like the below line
-            //borderRadius: new BorderRadius.circular(30.0),
-            // color: Colors.blue,
+            border: Border.all(width: 0),
           ),
           height: 40,
           child: Row(
@@ -42,8 +38,8 @@ class CryptoItemWidget extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(top: 0, bottom: 0, left: 5, right: 0),
                 child: Container(
-                  width: 30,
-                  height: 30,
+                  width: 35,
+                  height: 35,
                   decoration: BoxDecoration(
                     border: Border.all(width: 1),
                     shape: BoxShape.circle,
@@ -70,10 +66,11 @@ class CryptoItemWidget extends StatelessWidget {
                   style: TextStyle(color: Colors.red, fontSize: 15),
                 ),
               ),
-              Text((cryptoModel.price.toStringAsFixed(1)) + ' \$',
-                  style: TextStyle(color: Colors.black, fontSize: 13)),
-              Text((cryptoModel.changePercent24Hr.toStringAsFixed(1)) + ' \%',
-                  style: TextStyle(color: Colors.black, fontSize: 13))
+              Text('Price: ' + (cryptoModel.price.toStringAsFixed(1)) + ' \$',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 13,
+                  )),
             ],
           ),
         ),

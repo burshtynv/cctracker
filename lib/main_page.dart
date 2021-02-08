@@ -38,6 +38,7 @@ class _ListCryptoState extends State<ListCrypto> {
         itemCount: data.length,
         itemBuilder: (context, index) {
           CryptoModel cryptoModel = data[index];
+
           return CryptoItemWidget(
               cryptoModel: cryptoModel,
               onTapActorFunction: (cryptoModel) {
@@ -56,7 +57,7 @@ class _ListCryptoState extends State<ListCrypto> {
 
   _loadCC() async {
     final response =
-        await http.get('https://api.coincap.io/v2/assets?limit=20');
+        await http.get('https://api.coincap.io/v2/assets?limit=50');
 
     if (response.statusCode == 200) {
       var allData = (json.decode(response.body) as Map)['data'];
