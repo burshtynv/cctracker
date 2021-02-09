@@ -36,6 +36,34 @@ class _ListCryptoState extends State<ListCrypto> {
       ),
       body: Column(
         children: [
+          Row(
+            children: [
+              Container(
+                padding: EdgeInsets.all(4.0),
+                width: 80.0,
+                child: Text(
+                  "Rank",
+                  style: TextStyle(fontSize: 15),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(top: 0, bottom: 0, left: 0, right: 0),
+                width: 100.0,
+                child: Text(
+                  "Name",
+                  style: TextStyle(fontSize: 15),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(top: 0, bottom: 0, left: 0, right: 0),
+                width: 100.0,
+                child: Text(
+                  "Price",
+                  style: TextStyle(fontSize: 15),
+                ),
+              ),
+            ],
+          ),
           Expanded(
             child: ListView.builder(
               itemCount: data.length,
