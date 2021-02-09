@@ -34,23 +34,29 @@ class _ListCryptoState extends State<ListCrypto> {
           ),
         ],
       ),
-      body: ListView.builder(
-        itemCount: data.length,
-        itemBuilder: (context, index) {
-          CryptoModel cryptoModel = data[index];
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: data.length,
+              itemBuilder: (context, index) {
+                CryptoModel cryptoModel = data[index];
 
-          return CryptoItemWidget(
-              cryptoModel: cryptoModel,
-              onTapActorFunction: (cryptoModel) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => ItemInfoPage(
-                            name: cryptoModel.name,
-                          )),
-                );
-              });
-        },
+                return CryptoItemWidget(
+                    cryptoModel: cryptoModel,
+                    onTapActorFunction: (cryptoModel) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ItemInfoPage(
+                                  name: cryptoModel.name,
+                                )),
+                      );
+                    });
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
