@@ -22,84 +22,93 @@ class _ListCryptoState extends State<ListCrypto> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('CryptoCurrency'),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.refresh),
-            onPressed: () {
-              _loadCC();
-            },
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
-          Container(
-            color: Colors.grey[200],
-            child: Row(
-              children: [
-                Container(
-                  padding: EdgeInsets.all(4.0),
-                  width: 80.0,
-                  child: Text(
-                    "Rank",
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Container(
-                  padding:
-                      EdgeInsets.only(top: 0, bottom: 0, left: 0, right: 0),
-                  width: 100,
-                  child: Text(
-                    "Name",
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Container(
-                  padding:
-                      EdgeInsets.only(top: 0, bottom: 0, left: 15, right: 0),
-                  width: 80.0,
-                  child: Text(
-                    "Price",
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Spacer(),
-                Container(
-                  padding:
-                      EdgeInsets.only(top: 0, bottom: 0, left: 9, right: 0),
-                  width: 80.0,
-                  child: Text(
-                    "Ch(24hr)",
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: data.length,
-              itemBuilder: (context, index) {
-                CryptoModel cryptoModel = data[index];
-
-                return CryptoItemWidget(
-                    cryptoModel: cryptoModel,
-                    onTapActorFunction: (cryptoModel) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ItemInfoPage(
-                                  name: cryptoModel.name,
-                                )),
-                      );
-                    });
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('CryptoCurrency'),
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.refresh),
+              onPressed: () {
+                _loadCC();
               },
             ),
-          ),
-        ],
+          ],
+        ),
+        body: Column(
+          children: [
+            Container(
+              color: Colors.grey[200],
+              child: Row(
+                children: [
+                  Container(
+                    padding:
+                        EdgeInsets.only(top: 0, bottom: 0, left: 5, right: 0),
+                    width: 80.0,
+                    child: Text(
+                      "Rank",
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Spacer(),
+                  Container(
+                    padding:
+                        EdgeInsets.only(top: 0, bottom: 0, left: 0, right: 0),
+                    width: 100,
+                    child: Text(
+                      "Name",
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Spacer(),
+                  Container(
+                    padding:
+                        EdgeInsets.only(top: 0, bottom: 0, left: 0, right: 0),
+                    width: 80.0,
+                    child: Text(
+                      "Price",
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Spacer(),
+                  Container(
+                    padding:
+                        EdgeInsets.only(top: 0, bottom: 0, left: 0, right: 0),
+                    width: 80.0,
+                    child: Text(
+                      "Ch(24hr)",
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: data.length,
+                itemBuilder: (context, index) {
+                  CryptoModel cryptoModel = data[index];
+
+                  return CryptoItemWidget(
+                      cryptoModel: cryptoModel,
+                      onTapActorFunction: (cryptoModel) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ItemInfoPage(
+                                    name: cryptoModel.name,
+                                  )),
+                        );
+                      });
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

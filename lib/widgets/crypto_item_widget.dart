@@ -25,24 +25,28 @@ class CryptoItemWidget extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                width: 30,
-                height: 30,
-                child: Center(
-                  child: Text(
-                    cryptoModel.rank.toString() + '.',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold),
+              Padding(
+                padding: EdgeInsets.only(top: 0, bottom: 0, left: 3, right: 0),
+                child: Container(
+                  width: 30,
+                  height: 30,
+                  child: Center(
+                    child: Text(
+                      cryptoModel.rank.toString() + '.',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ),
+              Spacer(),
               Padding(
-                padding: EdgeInsets.only(top: 0, bottom: 0, left: 5, right: 0),
+                padding: EdgeInsets.only(top: 0, bottom: 0, left: 0, right: 5),
                 child: Container(
-                  width: 40,
-                  height: 40,
+                  width: 41,
+                  height: 41,
                   decoration: BoxDecoration(
                     border: Border.all(width: 1),
                     shape: BoxShape.circle,
@@ -58,15 +62,16 @@ class CryptoItemWidget extends StatelessWidget {
                         cryptoModel.symbol,
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 12,
+                            fontSize: 11,
                             fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
                 ),
               ),
+              Spacer(),
               Padding(
-                padding: EdgeInsets.only(top: 0, bottom: 0, left: 5, right: 0),
+                padding: EdgeInsets.only(top: 0, bottom: 0, left: 0, right: 0),
                 child: Container(
                   width: 110,
                   child: Text(
@@ -77,9 +82,9 @@ class CryptoItemWidget extends StatelessWidget {
               ),
               Spacer(),
               Padding(
-                padding: EdgeInsets.only(top: 0, bottom: 0, left: 0, right: 40),
+                padding: EdgeInsets.only(top: 0, bottom: 0, left: 0, right: 0),
                 child: Container(
-                  width: 80,
+                  width: 100,
                   child: Text((cryptoModel.price.toStringAsFixed(1)) + ' \$',
                       style: TextStyle(
                           color: Colors.black,
@@ -89,13 +94,16 @@ class CryptoItemWidget extends StatelessWidget {
               ),
               Spacer(),
               Padding(
-                padding: EdgeInsets.only(top: 0, bottom: 0, left: 0, right: 5),
-                child: Text(
-                    (cryptoModel.changePercent24Hr.toStringAsFixed(1)) + ' %',
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold)),
+                padding: EdgeInsets.only(top: 0, bottom: 0, left: 0, right: 0),
+                child: Container(
+                  width: 60,
+                  child: Text(
+                      (cryptoModel.changePercent24Hr.toStringAsFixed(1)) + ' %',
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold)),
+                ),
               )
             ],
           ),
